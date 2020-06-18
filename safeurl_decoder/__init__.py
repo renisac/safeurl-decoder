@@ -18,6 +18,15 @@ class SafeURL(object):
     def __init__(self):
         pass
 
+    def _barracuda(self, u):
+
+        q = parse_qs(u.query)
+
+        r = q['a'][0]
+        r = unquote(r)
+
+        return r
+    
     def _proofpoint(self, u):
 
         q = parse_qs(u.query)
@@ -40,7 +49,10 @@ class SafeURL(object):
 
         u = urlparse(url)
 
-        if u.hostname == 'urldefense.proofpoint.com':
+        if u.hostname == 'linkprotect.cudasvc.com':
+            return self._barracuda(u)
+        
+        elif u.hostname == 'urldefense.proofpoint.com':
             return self._proofpoint(u)
 
         elif 'safelinks.protection.outlook.com' in u.hostname:
