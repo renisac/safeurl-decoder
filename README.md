@@ -1,6 +1,6 @@
 
 # safeurl_decoder
-Python SDK for decoding safeurls from Barracuda, Proofpoint, Microsoft, etc.
+Python SDK for decoding safeurls from Barracuda, Cisco, Proofpoint, Microsoft, etc.
 
 ## Install
 

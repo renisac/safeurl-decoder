@@ -26,7 +26,14 @@ class SafeURL(object):
         r = unquote(r)
 
         return r
-    
+
+    def _cisco(self, u):
+
+        r = u.path.split('/')[-1]
+        r = unquote(r)
+
+        return r
+
     def _proofpoint(self, u):
 
         q = parse_qs(u.query)
@@ -52,6 +59,9 @@ class SafeURL(object):
         if u.hostname == 'linkprotect.cudasvc.com':
             return self._barracuda(u)
         
+        elif u.hostname == 'secure-web.cisco.com':
+            return self._cisco(u)
+
         elif u.hostname == 'urldefense.proofpoint.com':
             return self._proofpoint(u)
 

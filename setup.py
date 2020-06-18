@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='safeurl_decoder',
-    version='1.0.1',
+    version='1.0.2',
     packages=find_packages(),
     url='https://github.com/renisac/safeurl_decoder',
     author='REN-ISAC',
